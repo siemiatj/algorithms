@@ -1,28 +1,35 @@
+const fs = require('fs');
+const readline = require('readline');
 const path = require('path');
 const pathArg = process.argv[2];
 const filePath = path.resolve(__dirname, pathArg);
-
-console.log('ARGS: ', pathArg, filePath);
-
-var test = [34, 203, 3, 746, 200, 984, 198, 764, 9];
-var test1 = [2, 4, 1, 3, 5];
-var test2 = [1, 5, 4, 8, 10, 2, 6, 9, 3, 7];
+const lineReader = readline.createInterface({
+  input: fs.createReadStream(filePath)
+});
 
 let COUNT = 0;
+let invertsArray = [];
 
-function mergeSort(arr) {
+lineReader.on('line', function (line) {
+  invertsArray.push(parseInt(line, 10));
+}).on('close', () => {
+  mergeAndCount(invertsArray);
+  console.log('Inverts in array: ', COUNT);
+});
+
+function mergeAndCount(arr) {
   if (arr.length < 2) {
     return arr;
   }
 
   let middle = parseInt(arr.length / 2),
-    left   = arr.slice(0, middle),
+    left   = arr.slice(0,middle),
     right  = arr.slice(middle);
 
-  return mergeAndCount(mergeSort(left), mergeSort(right));
+  return merge(mergeAndCount(left), mergeAndCount(right));
 }
  
-function mergeAndCount(left, right) {
+function merge(left, right) {
   var result = [];
 
   while (left.length && right.length) {
@@ -42,6 +49,3 @@ function mergeAndCount(left, right) {
 
   return result;
 }
- 
-console.log(mergeSort(test1), COUNT);
-// console.log(mergeSort(test2), COUNT);
