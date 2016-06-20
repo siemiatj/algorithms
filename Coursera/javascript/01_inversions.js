@@ -41,11 +41,11 @@ function merge(left, right) {
     }
   }
 
-  while (left.length)
-    result.push(left.shift());
-
-  while (right.length)
-    result.push(right.shift());
+  if (left.length) {
+    result = result.concat(left);
+  } else {
+    result = result.concat(right);
+  }
 
   return result;
 }
