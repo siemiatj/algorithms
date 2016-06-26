@@ -19,7 +19,6 @@ lineReader.on('line', function (line) {
 
 const quickSort = function(array, leftIdx, rightIdx) {
   if (array.length < 2) {
-    totalNumberOfComparisons = 0;
     return;
   }
 
@@ -49,7 +48,6 @@ const quickSort = function(array, leftIdx, rightIdx) {
 
   if (leftIdx < rightIdx) {
     let pivotIdx = partition(array, leftIdx, rightIdx);
-
     totalNumberOfComparisons += (rightIdx - leftIdx - 1);
 
     quickSort(array, leftIdx, pivotIdx);

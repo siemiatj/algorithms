@@ -8,30 +8,34 @@ const lineReader = readline.createInterface({
 });
 
 let toSortArray = [];
+let totalNumberOfComparisons = 0;
 
 lineReader.on('line', function (line) {
   toSortArray.push(parseInt(line, 10));
 }).on('close', () => {
   quickSort(toSortArray);
-  console.log(toSortArray);
+  console.log('Total number of comparisons (1st element as pivot): ', totalNumberOfComparisons);
 });
 
 const quickSort = function(array) {
   if (array.length < 2) {
-    return array;
+    return;
   }
 
   const partition = function(ar, l, r) {
-    if (r - l < 2) {
+    let len = r - l;
+
+    if (len < 2) {
       return;
     }
+    totalNumberOfComparisons += len - 1;
+
     let pivot = ar[l];
     let i = l + 1;
-    let j = l + 1;
+    let j = i;
 
     for (j; j < r; j += 1) {
       if (ar[j] < pivot) {
-
         swap(ar, j, i);
         i += 1;
       }
@@ -39,19 +43,16 @@ const quickSort = function(array) {
 
     swap(ar, l, i - 1);
 
-    partition(ar, l, i);
+    partition(ar, l, i - 1);
     partition(ar, i, r);
   };
 
   const swap = function(ar, a, b) {
-    let first = ar[a];
-    let second = ar[b];
+    let tmp = ar[a];
 
-    ar[a] = second;
-    ar[b] = first;
+    ar[a] = ar[b];
+    ar[b] = tmp;
   };
 
   partition(array, 0, array.length);
-
-  return array;
 }
