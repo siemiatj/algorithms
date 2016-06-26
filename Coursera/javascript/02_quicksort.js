@@ -1,6 +1,22 @@
-let toSort = [3,8,2,5,1,4,7,6];
+const fs = require('fs');
+const readline = require('readline');
+const path = require('path');
+const pathArg = process.argv[2];
+const filePath = path.resolve(__dirname, pathArg);
+const lineReader = readline.createInterface({
+  input: fs.createReadStream(filePath)
+});
 
-const quicksort = function(array) {
+let toSortArray = [];
+
+lineReader.on('line', function (line) {
+  toSortArray.push(parseInt(line, 10));
+}).on('close', () => {
+  quickSort(toSortArray);
+  console.log(toSortArray);
+});
+
+const quickSort = function(array) {
   if (array.length < 2) {
     return array;
   }
@@ -15,6 +31,7 @@ const quicksort = function(array) {
 
     for (j; j < r; j += 1) {
       if (ar[j] < pivot) {
+
         swap(ar, j, i);
         i += 1;
       }
@@ -38,5 +55,3 @@ const quicksort = function(array) {
 
   return array;
 }
-
-console.log(quicksort(toSort));
