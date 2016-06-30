@@ -17,6 +17,9 @@ lineReader.on('line', function (line) {
   console.log('Total number of comparisons (1st element as pivot): ', totalNumberOfComparisons);
 });
 
+/*
+ * First array element as pivot
+ */
 const quickSort = function(array) {
   if (array.length < 2) {
     return;

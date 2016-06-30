@@ -37,7 +37,7 @@ const quickSort = function(array) {
     let i = l + 1;
     let j = i;
 
-    swap(r-1, l);
+    swap(ar, r-1, l);
 
     for (j; j < r; j += 1) {
       if (ar[j] < pivot) {
