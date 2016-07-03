@@ -7,7 +7,7 @@ const lineReader = readline.createInterface({
   input: fs.createReadStream(filePath)
 });
 
-// let COUNT = 0;
+let MIN_CUTS = null;
 let verticesObject = {};
 let availableVertices = [];
 let parsedLine;
@@ -23,16 +23,20 @@ lineReader.on('line', function (line) {
   verticesObject[vertexNo] = parsedLine;
 
 }).on('close', () => {
-  console.log('Inverts in array: ', verticesObject, availableVertices);
-
-  findMinCut(verticesObject, availableVertices);
+  for (let i=0; i< 10; i+= 1) {
+    findMinCut(Object.assign(verticesObject, {}), availableVertices.slice());
+  }
+  console.log('Minimum cut number: ', MIN_CUTS);
 });
-
-let MIN_CUT = 0;
 
 const findMinCut = function(vertices, allVertices) {
   let lengthLeft = Object.keys(vertices).length;
   if (lengthLeft === 2) {
+    let vertex1 = allVertices[0];
+
+    if (MIN_CUTS === null || (vertices[vertex1].length < MIN_CUTS)) {
+      MIN_CUTS = vertices[vertex1].length;
+    }
     return;
   }
 
