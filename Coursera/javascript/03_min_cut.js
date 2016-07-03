@@ -13,7 +13,6 @@ let availableVertices = [];
 let parsedLine;
 
 lineReader.on('line', function (line) {
-  // let tmpObj = {};
   parsedLine = line.split(' ');
   let vertexNo = parsedLine.shift();
   availableVertices.push(vertexNo);
@@ -23,7 +22,6 @@ lineReader.on('line', function (line) {
   });
   verticesObject[vertexNo] = parsedLine;
 
-  // verticesArray.push(tmpObj);
 }).on('close', () => {
   console.log('Inverts in array: ', verticesObject, availableVertices);
 
@@ -33,16 +31,8 @@ lineReader.on('line', function (line) {
 let MIN_CUT = 0;
 
 const findMinCut = function(vertices, allVertices) {
-  // console.log('START: ', vertices, allVertices);
-
   let lengthLeft = Object.keys(vertices).length;
-  // console.log('Object.keys', Object.keys({1: 2}));
-  // if (array.length < 3) {
   if (lengthLeft === 2) {
-    // let k1 = allVertices[0];
-    // let edges = vertices[k1];
-    
-    console.log('VERTICES LEFT:', vertices);
     return;
   }
 
@@ -50,19 +40,13 @@ const findMinCut = function(vertices, allVertices) {
     let n1 = Math.floor(Math.random() * (allVertices.length));
     let len2 = allVertices[n1].length;
     let n2 = Math.floor(Math.random() * (len2));
-    
-    n1 = allVertices[n1];
-    console.log('N!', n1, ', N2', n2);
+
+    n1 = parseInt(allVertices[n1], 10);
 
     return [n1, vertices[n1][n2]];
   };
 
   const getEdges = function(n) {
-    // let edges = [].concat.apply([], ar.splice(n-1, 1));
-
-    // edges.shift();
-
-
     return vertices[n];
   };
 
@@ -77,20 +61,11 @@ const findMinCut = function(vertices, allVertices) {
       return e !== n1 && e !== n2;
     });
 
-    console.log('EDGES: ', n1Edges, n2Edges, mergedEdges);
-    // n2Edges.shifti();
-    //remove n1 and n2 from merged vertices
-    //remove n2 from all other vertices edges, replacing it with n1 (only if not
-    //already there)
-
-    // console.log('n2edges: ', n2Edges);
     vertices[n1] = mergedEdges;
     delete vertices[n2];
   };
 
   const removeOldVertex = function(edge) {
-    console.log('BEFORE: ', vertices);
-    // for (let vert of Object.values(vertices)) {
     for (let v in vertices) {
       let vert = vertices[v];
 
@@ -101,17 +76,13 @@ const findMinCut = function(vertices, allVertices) {
       });
     }
 
-    console.log('AFTER: ', vertices);
   };
   let edge = getEdge();
-  console.log('EDGE: ', edge);
 
   contract(edge);
   removeOldVertex(edge);
-  
-  // console.log('EDGE[1]', edge[1]);
+
   allVertices = allVertices.filter(k => {
-    // console.log('k', k, edge[1]);
     return parseInt(k, 10) !== parseInt(edge[1], 10);
   });
 
