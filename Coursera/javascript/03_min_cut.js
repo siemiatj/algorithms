@@ -8,31 +8,42 @@ const lineReader = readline.createInterface({
 });
 
 let MIN_CUTS = null;
-let verticesObject = {};
-let availableVertices = [];
+// let verticesObject = {};
+// let availableVertices = [];
+let verticesArray = [];
+let edgesArray = [];
 let parsedLine;
 
 lineReader.on('line', function (line) {
-  parsedLine = line.split(' ');
+  parsedLine = line.split(/\s+/);
   let vertexNo = parsedLine.shift();
-  availableVertices.push(vertexNo);
+  verticesArray.push(vertexNo);
 
   parsedLine.forEach((l, idx) => {
-    parsedLine[idx] = parseInt(l, 10);
+    // parsedLine[idx] = parseInt(l, 10);
+    edgesArray.push([vertexNo, l]);
   });
-  verticesObject[vertexNo] = parsedLine;
+  // verticesObject[vertexNo] = parsedLine;
 
 }).on('close', () => {
-  for (let i=0; i< 10; i+= 1) {
-    findMinCut(Object.assign(verticesObject, {}), availableVertices.slice());
+  let verticesCopy, allVerticesCopy;
+
+  for (let i=0; i< 2; i+= 1) {
+    verticesCopy = Object.assign({}, verticesObject);
+    allVerticesCopy = availableVertices.slice());
+
+    findMinCut(verticesCopy, allVerticesCopy);
   }
   console.log('Minimum cut number: ', MIN_CUTS);
 });
 
 const findMinCut = function(vertices, allVertices) {
+  // console.log('DATA: ', vertices, allVertices);
   let lengthLeft = Object.keys(vertices).length;
   if (lengthLeft === 2) {
     let vertex1 = allVertices[0];
+
+    // console.log('VERTEX: ', vertex1, allVertices, vertices);
 
     if (MIN_CUTS === null || (vertices[vertex1].length < MIN_CUTS)) {
       MIN_CUTS = vertices[vertex1].length;
