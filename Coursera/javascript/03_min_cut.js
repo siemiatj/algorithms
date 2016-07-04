@@ -1,6 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
+const RN = require('random-number');
 const PATHARG = process.argv[2];
 const RETRIES = parseInt(process.argv[3], 10);
 const filePath = path.resolve(__dirname, PATHARG);
@@ -21,7 +22,9 @@ lineReader.on('line', function (line) {
   verticesTmpObject[vertexNo] = {};
 
   parsedLine.forEach((l, idx) => {
-    verticesTmpObject[vertexNo][l] = true;
+    if (parseInt(l, 10)) {
+      verticesTmpObject[vertexNo][l] = true;
+    }
   });
 }).on('close', () => {
   // remove duplicated edges
@@ -53,10 +56,14 @@ const findMinCut = function(vertices, edges) {
 
   // remove edge and vertex at one end of this edge
   const removeEdge = function() {
-    let m = Math.floor(Math.random() * (edges.length));
+    let m = RN({
+      min: 0,
+      max: edges.length-1,
+      integer: true
+    });
     let edge = edges[m];
-    let n1 = edges[m][0];
-    let n2 = edges[m][1];
+    let n1 = edge[0];
+    let n2 = edge[1];
 
     edges.splice(m, 1);
     vertices = vertices.filter(v => {
@@ -71,26 +78,25 @@ const findMinCut = function(vertices, edges) {
     let n2 = edge[1];
 
     edges.forEach(e => {
+      if (e[0] == n2) {
+        e[0] = n1;
+      }
       if (e[1] == n2) {
         e[1] = n1;
-      } else if (e[0] == n2) {
-        e[0] = n1;
       }
     });
   };
 
-  const removeLoops = function(edge) {
-    let n1 = edge[0];
-
+  const removeLoops = function() {
     edges = edges.filter(e => {
-      return (e[0] != n1 && e[1] != n1);
+      return (e[0] != e[1]);
     });
   };
 
   let edge = removeEdge();
 
   contract(edge);
-  removeLoops(edge);
+  removeLoops();
 
   findMinCut(vertices, edges);
 };
