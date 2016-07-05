@@ -1,7 +1,8 @@
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
-const RN = require('random-number');
+const Rn = require('random-number');
+const Clone = require('clone');
 const PATHARG = process.argv[2];
 const RETRIES = parseInt(process.argv[3], 10);
 const filePath = path.resolve(__dirname, PATHARG);
@@ -35,12 +36,11 @@ lineReader.on('line', function (line) {
       delete verticesTmpObject[m][n];
     }
   }
-  let verticesCopy, allVerticesCopy;
+  let verticesCopy, edgesCopy;
 
   for (let i=0; i< RETRIES; i+= 1) {
-    verticesCopy = verticesArray.slice()
-    edgesCopy = edgesArray.slice();
-
+    verticesCopy = verticesArray.slice(0)
+    edgesCopy = Clone(edgesArray);
     findMinCut(verticesCopy, edgesCopy);
   }
   console.log('Minimum cut number: ', MIN_CUTS);
@@ -48,7 +48,7 @@ lineReader.on('line', function (line) {
 
 const findMinCut = function(vertices, edges) {
   if (vertices.length === 2) {
-    if (MIN_CUTS === null || (edges < MIN_CUTS)) {
+    if (MIN_CUTS === null || (edges.length < MIN_CUTS)) {
       MIN_CUTS = edges.length;
     }
     return;
@@ -56,7 +56,7 @@ const findMinCut = function(vertices, edges) {
 
   // remove edge and vertex at one end of this edge
   const removeEdge = function() {
-    let m = RN({
+    let m = Rn({
       min: 0,
       max: edges.length-1,
       integer: true
@@ -94,7 +94,6 @@ const findMinCut = function(vertices, edges) {
   };
 
   let edge = removeEdge();
-
   contract(edge);
   removeLoops();
 
