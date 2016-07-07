@@ -8,6 +8,8 @@ This folder contains my solutions to programming assingments given during the `A
 > Your task is to compute the number of inversions in the file given, where the ith row of the file indicates the ith entry of an array.
 > Because of the large size of this array, you should implement the fast divide-and-conquer algorithm covered in the video lectures. Answer is the numeric value of all the inversions.
 
+And the correct answer is *2407905288*
+
 The second file `01_inversions_small.txt` contains a small set for testing purposes.
 
 ### javascript
@@ -61,9 +63,32 @@ There's also an implementation similar to the one shown by `Nicolas C. Zakas` ye
 
 ## Task 3
 
-> The file contains the adjacency list representation of a simple undirected graph. There are 200 vertices labeled 1 to 200. The first column in the file represents the vertex label, and the particular row (other entries except the first column) tells all the vertices that the vertex is adjacent to. So for example, the 6th row looks like : "6  155 56  52  120 ......". 
+> Attached file `03_min_cut.txt` contains the adjacency list representation of a simple undirected graph. There are 200 vertices labeled 1 to 200. The first column in the file represents the vertex label, and the particular row (other entries except the first column) tells all the vertices that the vertex is adjacent to. So for example, the 6th row looks like : "6  155 56  52  120 ......". 
 > This just means that the vertex with label 6 is adjacent to (i.e., shares an edge with) the vertices with labels 155, 56, 52, 120, ......, etc
 
 > Your task is to code up and run the randomized contraction algorithm for the min cut problem and use it on the above graph to compute the min cut. 
 > (HINT: Note that you'll have to figure out an implementation of edge contractions. Initially, you might want to do this naively, creating a new graph from the old every time there's an edge contraction. But you should also think about more efficient implementations.) 
 > (WARNING: As per the video lectures, please make sure to run the algorithm many times with different random seeds, and remember the smallest cut that you ever find.) Write your numeric answer in the space provided. So e.g., if your answer is 5, just type 5 in the space provided.
+
+And the correct answer is *17*
+
+The second file `03_min_cut_small.txt` contains a small set for testing purposes.
+
+### javascript
+
+To run the javascript solution, just type :
+
+`cd ./javascript && npm install` 
+
+and then
+
+`node ./javascript/03_min_cut.js ../03_min_cut.txt`
+
+
+## Task 4
+
+> Attached file `04_connected_components.txt` contains the edges of a directed graph. Vertices are labeled as positive integers from 1 to 875714. Every row indicates an edge, the vertex label in first column is the tail and the vertex label in second column is the head (recall the graph is directed, and the edges are directed from the first column vertex to the second column vertex). So for example, the 11th row looks liks : "2 47646". This just means that the vertex with label 2 has an outgoing edge to the vertex with label 47646
+
+> Your task is to code up the algorithm from the video lectures for computing strongly connected components (SCCs), and to run this algorithm on the given graph.
+
+> Output Format: You should output the sizes of the 5 largest SCCs in the given graph, in decreasing order of sizes, separated by commas (avoid any spaces). So if your algorithm computes the sizes of the five largest SCCs to be 500, 400, 300, 200 and 100, then your answer should be "500,400,300,200,100" (without the quotes). If your algorithm finds less than 5 SCCs, then write 0 for the remaining terms. Thus, if your algorithm computes only 3 SCCs whose sizes are 400, 300, and 100, then your answer should be "400,300,100,0,0" (without the quotes). (Note also that your answer should not have any spaces in it.)
