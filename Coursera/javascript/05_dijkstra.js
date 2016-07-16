@@ -8,7 +8,7 @@ const lineReader = readline.createInterface({
   input: fs.createReadStream(filePath)
 });
 
-let weightedAdjList = {};
+let graph = {};
 
 lineReader.on('line', function (line) {
   /*
@@ -26,8 +26,31 @@ lineReader.on('line', function (line) {
     }
   });
 
-  weightedAdjList[vertexNo] = vertexEdges;
+  graph[vertexNo] = vertexEdges;
 }).on('close', () => {
 
-  console.log('LIST: ', weightedAdjList);
+  console.log('LIST: ', graph);
+
+
 });
+
+const dijkstra(startNode, endNode, graphStruct) {
+  // vertices processed so far
+  let X = {};
+  X[startNode] = {
+    length: 0
+  }
+  
+  // until X containts the end node
+  let processedNode;
+  while (!X[endNode]) {
+    processedNode = runDijkstra(X, graphStruct);
+  }
+}
+
+const runDijkstra(processedNodes, graphStruct) {
+  let 
+  for (let vertex in processedNodes) {
+    
+  }
+}
