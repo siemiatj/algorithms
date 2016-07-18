@@ -11,7 +11,6 @@ const runDijkstra = function (processedNodes, graphStruct) {
   let currentLength;
   let currentLevel;
   let bestLength = null;
-  let newLength;
   let vertex;
   let node;
   let bestNode = null;
@@ -20,47 +19,21 @@ const runDijkstra = function (processedNodes, graphStruct) {
     currentLevel = graphStruct[vertex];
     currentLength = processedNodes[vertex].length || 0;
 
-    // console.log('VERTEX: ', vertex, currentLength, Object.keys(processedNodes));
-
     for (node of Object.keys(currentLevel)) {
       if (processedNodes[node]) {
         continue;
       }
 
-      // console.log('EDGE: ', node, graphStruct[vertex][node]);
-      // newLength = currentLength + currentLevel[node];
-      // if (!bestLength) {
       if (bestLength === null || bestLength > (currentLength + currentLevel[node])) {
-        // bestLength = newLength;
-        // bestNode
         bestLength = currentLength + currentLevel[node];
         bestNode = node;
       }
-      // } else {
-      //   bestLength = newLength < bestLength ? newLength : bestLength;
-      // }
-
-      // console.log('NODE: ', node, bestLength, bestNode);
-
-      // let lastNodeInPath = vertex.path[vertex.path.length - 1];
-
-      // if (node !== lastNodeInPath && )
-      // processedNodes[bestNode] = {
-      //   length: bestLength
-      // };
     }
-
-    // processedNodes[bestNode].length = bestLength || 0;
   }
 
   processedNodes[bestNode] = {
     length: bestLength
   };
-
-  return;
-  // return {
-  //   node: bestNode,
-  // }
 };
 
 const dijkstra = function (startNode, endNode, graphStruct) {
@@ -75,7 +48,6 @@ const dijkstra = function (startNode, endNode, graphStruct) {
     runDijkstra(processedVertices, graphStruct);
   }
 
-  // console.log('X: ', processedVertices);
   return processedVertices[endNode];
 };
 
@@ -86,8 +58,9 @@ lineReader.on('line', (line) => {
    */
   const parsedLine = line.split(/\s+/);
   const vertexNo = parsedLine.shift();
-  let vertexEdges = {};
-  let vertex, value;
+  const vertexEdges = {};
+  let vertex;
+  let value;
 
   parsedLine.forEach((l) => {
     if (parseInt(l, 10)) {
@@ -98,11 +71,5 @@ lineReader.on('line', (line) => {
 
   graph[vertexNo] = vertexEdges;
 }).on('close', () => {
-  // console.log('LIST: ', graph);
-
-  // console.log(dijkstra(8, 2, graph));
-  // console.log(dijkstra(6, 4, graph));
-  // console.log(dijkstra(5, 4, graph));
   console.log(dijkstra(1, 7, graph));
-  // console.log('GRAPH: ', graph);
 });
