@@ -1,7 +1,6 @@
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
-// const Clone = require('clone');
 const PATHARG = process.argv[2];
 const filePath = path.resolve(__dirname, PATHARG);
 const lineReader = readline.createInterface({
@@ -11,52 +10,73 @@ const lineReader = readline.createInterface({
 const runDijkstra = function (processedNodes, graphStruct) {
   let currentLength;
   let currentLevel;
-  let bestLength;
-    // bestNode
+  let bestLength = null;
   let newLength;
   let vertex;
   let node;
+  let bestNode = null;
 
-  for (vertex in processedNodes) {
+  for (vertex of Object.keys(processedNodes)) {
     currentLevel = graphStruct[vertex];
-    currentLength = vertex.length || 0;
+    currentLength = processedNodes[vertex].length || 0;
 
-    for (node in currentLevel) {
+    // console.log('VERTEX: ', vertex, currentLength, Object.keys(processedNodes));
+
+    for (node of Object.keys(currentLevel)) {
       if (processedNodes[node]) {
         continue;
       }
 
-      newLength = currentLength + currentLevel[node];
-      if (!bestLength) {
-        bestLength = newLength;
-      } else {
-        bestLength = newLength < bestLength ? newLength : bestLength;
+      // console.log('EDGE: ', node, graphStruct[vertex][node]);
+      // newLength = currentLength + currentLevel[node];
+      // if (!bestLength) {
+      if (bestLength === null || bestLength > (currentLength + currentLevel[node])) {
+        // bestLength = newLength;
+        // bestNode
+        bestLength = currentLength + currentLevel[node];
+        bestNode = node;
       }
+      // } else {
+      //   bestLength = newLength < bestLength ? newLength : bestLength;
+      // }
+
+      // console.log('NODE: ', node, bestLength, bestNode);
 
       // let lastNodeInPath = vertex.path[vertex.path.length - 1];
 
       // if (node !== lastNodeInPath && )
-      processedNodes[node] = bestLength;
+      // processedNodes[bestNode] = {
+      //   length: bestLength
+      // };
     }
 
-    processedNodes[vertex].length = bestLength;
+    // processedNodes[bestNode].length = bestLength || 0;
   }
+
+  processedNodes[bestNode] = {
+    length: bestLength
+  };
+
+  return;
+  // return {
+  //   node: bestNode,
+  // }
 };
 
 const dijkstra = function (startNode, endNode, graphStruct) {
   // vertices processed so far
-  const X = {};
-  X[startNode] = {
-    length: 0,
-    path: []
+  const processedVertices = {};
+  processedVertices[startNode] = {
+    length: 0
   };
 
-  // until X containts the end node
-  while (!X[endNode]) {
-    runDijkstra(X, graphStruct);
+  // until processedVertices containts the end node
+  while (!processedVertices[endNode]) {
+    runDijkstra(processedVertices, graphStruct);
   }
 
-  return X[startNode];
+  // console.log('X: ', processedVertices);
+  return processedVertices[endNode];
 };
 
 const graph = {};
@@ -78,9 +98,11 @@ lineReader.on('line', (line) => {
 
   graph[vertexNo] = vertexEdges;
 }).on('close', () => {
-  console.log('LIST: ', graph);
+  // console.log('LIST: ', graph);
 
   // console.log(dijkstra(8, 2, graph));
-  console.log(dijkstra(6, 4, graph));
+  // console.log(dijkstra(6, 4, graph));
   // console.log(dijkstra(5, 4, graph));
+  console.log(dijkstra(1, 7, graph));
+  // console.log('GRAPH: ', graph);
 });
