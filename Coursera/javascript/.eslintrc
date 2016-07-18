@@ -1,0 +1,22 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+    },
+    "sourceType": "module"
+  },
+
+  "env": {
+    "es6": true,
+    "node": true
+  },
+
+  "extends": "airbnb",
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "func-names": 1,
+    "no-param-reassign": 1,
+    "no-restricted-syntax": [1, "FunctionExpression", "WithStatement"]
+  }
+}
