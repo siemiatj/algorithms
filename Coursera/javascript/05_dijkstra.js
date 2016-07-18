@@ -71,5 +71,14 @@ lineReader.on('line', (line) => {
 
   graph[vertexNo] = vertexEdges;
 }).on('close', () => {
-  console.log(dijkstra(1, 7, graph));
+  console.log('7:' + dijkstra(1, 7, graph).length);
+  console.log('37:' + dijkstra(1, 37, graph).length);
+  console.log('59:' + dijkstra(1, 59, graph).length);
+  console.log('82:' + dijkstra(1, 82, graph).length);
+  console.log('99:' + dijkstra(1, 99, graph).length);
+  console.log('115:' + dijkstra(1, 115, graph).length);
+  console.log('133:' + dijkstra(1, 133, graph).length);
+  console.log('165:' + dijkstra(1, 165, graph).length);
+  console.log('188:' + dijkstra(1, 188, graph).length);
+  console.log('197:' + dijkstra(1, 197, graph).length);
 });

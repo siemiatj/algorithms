@@ -97,6 +97,7 @@ And the correct answer is *434821,968,459,313,211*
 
 As always the second file `04_connected_components_small.txt` contains a small set for testing purposes.
 
+
 ## Task 5
 
 > attached file `05_dijkstra.txt` contains an adjacency list representation of an undirected weighted graph with 200 vertices labeled 1 to 200. Each row consists of the node tuples that are adjacent to that particular vertex along with the length of that edge. For example, the 6th row has 6 as the first entry indicating that this row corresponds to the vertex labeled 6. The next entry of this row "141,8200" indicates that there is an edge between vertex 6 and vertex 141 that has length 8200. The rest of the pairs of this row indicate the other vertices adjacent to vertex 6 and the lengths of the corresponding edges.
@@ -104,3 +105,13 @@ As always the second file `04_connected_components_small.txt` contains a small s
 > Your task is to run Dijkstra's shortest-path algorithm on this graph, using 1 (the first vertex) as the source vertex, and to compute the shortest-path distances between 1 and every other vertex of the graph. If there is no path between a vertex v and vertex 1, we'll define the shortest-path distance between 1 and v to be 1000000.
 
 > You should report the shortest-path distances to the following ten vertices, in order: 7,37,59,82,99,115,133,165,188,197. You should encode the distances as a comma-separated string of integers. So if you find that all ten of these vertices except 115 are at distance 1000 away from vertex 1 and 115 is 2000 distance away, then your answer should be 1000,1000,1000,1000,1000,2000,1000,1000,1000,1000. Remember the order of reporting DOES MATTER, and the string should be in the same order in which the above ten vertices are given. The string should not contain any spaces. Please type your answer in the space provided.
+
+And the correct answer is : *2599,2610,2947,2052,2367,2399,2029,2442,2505,3068*
+
+The second file `05_dijkstra_small.txt` contains a small dataset for testing.
+
+### javascript
+
+To run the javascript solution, just type :
+
+`node ./javascript/05_dijkstra.js ../05_dijkstra.txt`
