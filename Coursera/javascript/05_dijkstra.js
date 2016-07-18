@@ -31,26 +31,55 @@ lineReader.on('line', function (line) {
 
   console.log('LIST: ', graph);
 
-
+  dijkstra(8, 2, graph);
 });
 
-const dijkstra(startNode, endNode, graphStruct) {
+const dijkstra = function (startNode, endNode, graphStruct) {
   // vertices processed so far
   let X = {};
   X[startNode] = {
-    length: 0
-  }
-  
+    length: 0,
+    path: []
+  };
+
   // until X containts the end node
   let processedNode;
   while (!X[endNode]) {
     processedNode = runDijkstra(X, graphStruct);
   }
-}
 
-const runDijkstra(processedNodes, graphStruct) {
-  let 
+  return X[startNode];
+};
+
+const runDijkstra = function (processedNodes, graphStruct) {
+  let currentLength,
+    currentLevel,
+    bestLength,
+    // bestNode
+    newLength;
+
   for (let vertex in processedNodes) {
-    
+    currentLevel = graphStruct[vertex];
+    currentLength = vertex.length || 0;
+
+    for (let node in currentLevel) {
+      if (processedNodes[node]) {
+        continue;
+      }
+
+      newLength = currentLength + currentBranch[node];
+      if (!bestLength) {
+        bestLength = newLength;
+      } else {
+        bestLength = newLength < bestLength ? newLength : bestLength;
+      }
+
+      // let lastNodeInPath = vertex.path[vertex.path.length - 1];
+
+      // if (node !== lastNodeInPath && )
+      processedNodes[node] = bestLength;
+    }
+
+    processedNodes[vertex].length = bestLength;
   }
-}
+};
