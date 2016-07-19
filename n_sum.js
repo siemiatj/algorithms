@@ -1,4 +1,6 @@
 /*
+    N-SUM Problem
+
     Having an array of numbers `a`, integers `n` and `z`, we want to check
     if any given `z` integers from the `a` array sum up to the value of
     our given number `n`.

@@ -1,4 +1,6 @@
 /*
+    2-SUM Problem
+
     Three different solutions for the same problem.
     Having an array of numbers `a` and an integer `n`, we want to check
     if any given two integers from the `a` array sum up to the value of
