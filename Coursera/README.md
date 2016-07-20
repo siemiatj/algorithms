@@ -1,6 +1,8 @@
+![Stanford](https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png)
+
 # Description
 
-This folder contains my solutions to programming assingments given during the `Algorithms: Design and Analysis` course on [Coursera](https://www.coursera.org/learn/algorithm-design-analysis).
+This folder contains my solutions to programming assingments given during the `Algorithms: Design and Analysis, Part 1` course on [Coursera](https://www.coursera.org/learn/algorithm-design-analysis) by [Tim Roughgarden](https://www.coursera.org/instructor/~214). If you're currently following this course please use this repository only as a guide on how to tackle problems or to compare your working solutions with mine. After all you've agreed to Coursera Honor Code.
 
 ## Task 1
 
