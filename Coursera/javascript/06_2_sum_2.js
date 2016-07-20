@@ -9,6 +9,7 @@ const lineReader = readline.createInterface({
   input: fs.createReadStream(filePath)
 });
 let TWOSUMS = 0;
+const AllNumbersTmp = {};
 const AllNumbers = [];
 
 const check2SumsInRange = function (map, start, end) {
@@ -37,12 +38,10 @@ const getAllSums = function (list, start, end) {
       snd = list[y];
       sum = fst + snd;
 
-      if (fst !== snd && sum >= start && sum <= end && !sumPairs[sum]) {
+      if (sum >= start && sum <= end && !sumPairs[sum]) {
         sumPairs[sum] = 1;
       }
     }
-
-    console.log('Progress computing: ', ((i/list.length)*100), '%');
   }
 
   return sumPairs;
@@ -52,9 +51,12 @@ lineReader.on('line', (line) => {
   /*
    * Preprocessing input data
    */
-  const parsedLine = line.split(/\s+/);
+  const parsedNumber = parseInt(line, 10);
 
-  AllNumbers.push(parseInt(parsedLine[0], 10));
+  if (!(parsedNumber in AllNumbersTmp)) {
+    AllNumbers.push(parsedNumber);
+    AllNumbersTmp[parsedNumber] = 1;
+  }
 }).on('close', () => {
   const allExistingSums = getAllSums(AllNumbers, RANGESTART, RANGEEND);
 
