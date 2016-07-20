@@ -28,15 +28,17 @@ const getAllSums = function (list, start, end) {
   const sumPairs = {};
   let fst;
   let snd;
+  let sum;
 
   for (let i=0; i<list.length; i+=1) {
     fst = list[i];
 
     for (let y=0; y<list.length; y+=1) {
       snd = list[y];
+      sum = fst + snd;
 
-      if (fst !== snd && fst + snd >= start && fst + snd <= end) {
-        sumPairs[fst+snd] = 1;
+      if (fst !== snd && sum >= start && sum <= end && !sumPairs[sum]) {
+        sumPairs[sum] = 1;
       }
     }
 
