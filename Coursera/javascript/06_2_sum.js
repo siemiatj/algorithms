@@ -28,10 +28,15 @@ const check2Sum = function (map, num) {
 };
 
 const check2SumsInRange = function (map, start, end) {
+  let total = end - start;
+  total = 1.0 / total;
+
   for (let i = start; i < end + 1; i += 1) {
     if (check2Sum(map, i)) {
       TWOSUMS += 1;
     }
+
+    console.log('Progress: ', ((i - start)*100*total), '% (', TWOSUMS, ' sums)');
   }
 };
 

@@ -17,6 +17,7 @@
     "func-names": 1,
     "no-param-reassign": 1,
     "no-restricted-syntax": [1, "FunctionExpression", "WithStatement"],
-    "guard-for-in": 1
+    "guard-for-in": 1,
+    "space-infix-ops": 1
   }
 }
