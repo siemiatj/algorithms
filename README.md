@@ -29,15 +29,15 @@ Solutions in other languages are to be run accordingly using appropriate languag
 
 | Problem                                                              | Solution                                                                                                                     |
 |--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| [Counting inversions]()                   | [click]()                               |
-| [Quick Sort 1st elem as pivot]()     | [click]()  |
-| [Quick Sort last elem as pivot]()     | [click]()  |
-| [Quick Sort median elem as pivot]()     | [click]()  |
-| [Minimum Cut]()    | [click]() |
+| [Counting inversions]()                   | [click](https://github.com/siemiatj/algorithms/Coursera/javascript/blob/master/01_inversions.js)                               |
+| [Quick Sort 1st elem as pivot]()     | [click](https://github.com/siemiatj/algorithms/Coursera/javascript/blob/master/02_quicksort.js)  |
+| [Quick Sort last elem as pivot]()     | [click](https://github.com/siemiatj/algorithms/Coursera/javascript/blob/master/02_quicksort_2.js)  |
+| [Quick Sort median elem as pivot]()     | [click](https://github.com/siemiatj/algorithms/Coursera/javascript/blob/master/02_quicksort_3.js)  |
+| [Minimum Cut]()    | [click](https://github.com/siemiatj/algorithms/Coursera/javascript/blob/master/03_min_cut.js) |
 | [Strongly connected components]() | [click]() |
-| [Dijkstra's algorithm]()                      | [click]() |
-| [2 SUM variation #1]()          | [click]() |
-| [2 SUM variation #2]()                      | [click]() |
+| [Dijkstra's algorithm]()                      | [click](https://github.com/siemiatj/algorithms/Coursera/javascript/blob/master/05_dijkstra.js) |
+| [2 SUM variation #1]()          | [click](https://github.com/siemiatj/algorithms/Coursera/javascript/blob/master/06_2_sum.js) |
+| [2 SUM variation #2]()                      | [click](https://github.com/siemiatj/algorithms/Coursera/javascript/blob/master/06_2_sum_2.js) |
 | [Median maintenance]()      | [click]()  |
 
 # List
