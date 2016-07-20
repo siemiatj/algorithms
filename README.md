@@ -1,7 +1,7 @@
 # Algorithms and other programming problems
 
-This repository contains a variety of different algorithms and solutions that I've created over the years for various reasons - work, interviews,
-refreshing knowledge or just for fun. For solutions to `Algorithms: Design and Analysis, Part 1` course problems go [here]().
+This repository contains a list of different algorithms and solutions that I've created over the years for various reasons - work, interviews,
+refreshing knowledge or just for fun. For solutions to `Algorithms: Design and Analysis, Part 1` course problems go [here](). You can find most of them here, but some were extracted as separate projects.
 
 ## Problems
 
@@ -20,10 +20,10 @@ Solutions in other languages are to be run accordingly using appropriate languag
 
 | Problem                                                              | Solution                                                                                                                     |
 |--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| [Happy Numbers](https://en.wikipedia.org/wiki/Happy_number)                   | [click]()                               |
-| [2 SUM](https://algorithmstuff.wordpress.com/2013/07/30/two-sum-problem/)     | [click]()  |
-| [N SUM](https://en.wikipedia.org/wiki/Subset_sum_problem)    | [click]() |
-| [Minimum Cut](https://en.wikipedia.org/wiki/Minimum_cut) | [click]() |
+| [Happy Numbers](https://en.wikipedia.org/wiki/Happy_number)                   | [click](https://github.com/siemiatj/algorithms/blob/master/happy_numbers.js)                               |
+| [2 SUM](https://algorithmstuff.wordpress.com/2013/07/30/two-sum-problem/)     | [click](https://github.com/siemiatj/algorithms/blob/master/2_sum.js)  |
+| [N SUM](https://en.wikipedia.org/wiki/Subset_sum_problem)    | [click](https://github.com/siemiatj/algorithms/blob/master/n_sum.js) |
+| [Minimum Cut](https://en.wikipedia.org/wiki/Minimum_cut) | [click](https://github.com/siemiatj/minimum-cut) |
 
 ### Coursera problems
 
@@ -35,7 +35,6 @@ Solutions in other languages are to be run accordingly using appropriate languag
 | [Quick Sort median elem as pivot]()     | [click]()  |
 | [Minimum Cut]()    | [click]() |
 | [Strongly connected components]() | [click]() |
-
 | [Dijkstra's algorithm]()                      | [click]() |
 | [2 SUM variation #1]()          | [click]() |
 | [2 SUM variation #2]()                      | [click]() |
