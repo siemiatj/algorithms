@@ -3,8 +3,6 @@ const readline = require('readline');
 const path = require('path');
 const Heap = require('heap');
 const PATHARG = process.argv[2];
-const RANGESTART = parseInt(process.argv[3], 10);
-const RANGEEND = parseInt(process.argv[4], 10);
 const filePath = path.resolve(__dirname, PATHARG);
 const lineReader = readline.createInterface({
   input: fs.createReadStream(filePath)
@@ -19,6 +17,7 @@ const maxHeap = new Heap((a, b) => {
   }
   return 0;
 });
+const totalLength = 0;
 
 lineReader.on('line', (line) => {
   /*
@@ -28,11 +27,14 @@ lineReader.on('line', (line) => {
   const parsedNum = parseInt(parsedLine[0], 10);
 
   console.log('Num: ', parsedNum);
-  minHeap.push(parsedNum);
-  maxHeap.push(parsedNum);
+  // minHeap.push(parsedNum);
+  // maxHeap.push(parsedNum);
+  if (!totalLength) {
+    minHeap.push(parsedNum);
+  } else {
+
+  }
 }).on('close', () => {
-  console.log('HEAPS');
-  console.log('Min: ', minHeap.toArray());
-  console.log('Max: ', maxHeap.toArray());
+
 });
 
