@@ -17,6 +17,9 @@ let edgesArray = [];
 let parsedLine;
 
 lineReader.on('line', function (line) {
+  /*
+   * Preprocessing input data
+   */
   parsedLine = line.split(/\s+/);
   let vertexNo = parsedLine.shift();
   verticesArray.push(vertexNo);
@@ -39,7 +42,7 @@ lineReader.on('line', function (line) {
   let verticesCopy, edgesCopy;
 
   for (let i=0; i< RETRIES; i+= 1) {
-    verticesCopy = verticesArray.slice(0)
+    verticesCopy = verticesArray.slice(0);
     edgesCopy = Clone(edgesArray);
     findMinCut(verticesCopy, edgesCopy);
   }
