@@ -1,3 +1,11 @@
+/*
+ * This is a well known solution to 2 SUM problem, using two pointers on an
+ * array. The complexity of this algorithm is O(nlogn) so theoretically
+ * slower than a hash lookup.
+ *
+ * It takes around 3min to return the result.
+ */
+
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');

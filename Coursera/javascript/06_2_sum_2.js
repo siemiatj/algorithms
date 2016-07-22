@@ -1,3 +1,11 @@
+/*
+ * This solution computes all possible sums up front and then does a lookup
+ * in the resulting hash set to check if required sum exists.
+ *
+ * This is a really slow solution as just computing the sums takes O(n^2) time.
+ * It required over 24h to return the result (on MB Air late 2013).
+ */
+
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
@@ -47,6 +55,7 @@ const getAllSums = function (list, start, end) {
   return sumPairs;
 };
 
+console.time('loading');
 lineReader.on('line', (line) => {
   /*
    * Preprocessing input data
@@ -58,6 +67,8 @@ lineReader.on('line', (line) => {
     AllNumbersTmp[parsedNumber] = 1;
   }
 }).on('close', () => {
+  console.timeEnd('loading');
+
   const allExistingSums = getAllSums(AllNumbers, RANGESTART, RANGEEND);
 
   check2SumsInRange(allExistingSums, RANGESTART, RANGEEND);

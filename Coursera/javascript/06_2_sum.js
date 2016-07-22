@@ -1,3 +1,11 @@
+/*
+ * This is a pretty straightforward solution, that just iterates over the hash set
+ * and for each key tries to lookup another key that makes the sum.
+ *
+ * Be aware that using the data set from the course problem it takes around ~16h (MB Air 13')
+ * to give the result.
+ */
+
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
@@ -13,10 +21,12 @@ const AllNumbers = {};
 
 const check2Sum = function (map, num) {
   let ret = false;
+  let restKey = null;
   let rest = null;
 
   for (const k of Object.keys(map)) {
-    rest = map[parseInt(k, 10) - num];
+    restKey = map[k] - num;
+    rest = map[restKey];
 
     if (rest) {
       ret = true;
@@ -46,7 +56,7 @@ lineReader.on('line', (line) => {
    */
   const parsedLine = line.split(/\s+/);
 
-  AllNumbers[parsedLine[0]] = true;
+  AllNumbers[parsedLine[0]] = parseInt(parsedLine[0], 10);
 }).on('close', () => {
   check2SumsInRange(AllNumbers, RANGESTART, RANGEEND);
 
