@@ -8,8 +8,8 @@ const lineReader = readline.createInterface({
   input: fs.createReadStream(filePath)
 });
 
-const minHeap = new Heap();
-const maxHeap = new Heap((a, b) => {
+const heapHigh = new Heap();
+const heapLow = new Heap((a, b) => {
   if (a < b) {
     return 1;
   } else if (a > b) {
@@ -17,24 +17,45 @@ const maxHeap = new Heap((a, b) => {
   }
   return 0;
 });
-const totalLength = 0;
+let MEDIANSUMS = 0;
+
+const getNewMedian = (newNum) => {
+  let hLow;
+  let tmp;
+
+  if (!heapLow.size()) {
+    heapLow.push(newNum);
+    MEDIANSUMS += newNum;
+  } else {
+    hLow = heapLow.peek();
+
+    if (newNum > hLow) {
+      heapHigh.push(newNum);
+
+      if (heapHigh.size() > heapLow.size()) {
+        tmp = heapHigh.pop();
+        heapLow.push(tmp);
+      }
+    } else {
+      heapLow.push(newNum);
+
+      if (heapLow.size() - heapHigh.size() > 1) {
+        tmp = heapLow.pop();
+        heapHigh.push(tmp);
+      }
+    }
+
+    MEDIANSUMS += heapLow.peek();
+  }
+};
 
 lineReader.on('line', (line) => {
   /*
    * Preprocessing input data
    */
-  const parsedLine = line.split(/\s+/);
-  const parsedNum = parseInt(parsedLine[0], 10);
+  const parsedNum = parseInt(line, 10);
 
-  console.log('Num: ', parsedNum);
-  // minHeap.push(parsedNum);
-  // maxHeap.push(parsedNum);
-  if (!totalLength) {
-    minHeap.push(parsedNum);
-  } else {
-
-  }
+  getNewMedian(parsedNum);
 }).on('close', () => {
-
+  console.log('Sums: ', MEDIANSUMS % 10000);
 });
-

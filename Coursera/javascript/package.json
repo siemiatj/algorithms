@@ -4,6 +4,7 @@
   "description": "Algorithms created while following Coursera Algorithms Design and Analysis course",
   "dependencies": {
     "clone": "^1.0.2",
+    "heap": "^0.2.6",
     "random-number": "0.0.1"
   },
   "repository": {
