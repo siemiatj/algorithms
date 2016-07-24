@@ -2,11 +2,6 @@
   "name": "coursera-algorithms",
   "version": "0.0.1",
   "description": "Algorithms created while following Coursera Algorithms Design and Analysis course",
-  "dependencies": {
-    "clone": "^1.0.2",
-    "heap": "^0.2.6",
-    "random-number": "0.0.1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/siemiatj/algorithms.git"
@@ -17,7 +12,19 @@
     "url": "https://github.com/siemiatj/algorithms/issues"
   },
   "homepage": "https://github.com/siemiatj/algorithms",
+  "scripts": {
+    "pretest": "npm install",
+    "nodetest": "jasmine-node spec",
+    "test": "make test"
+  },
+  "dependencies": {
+    "clone": "^1.0.2",
+    "heap": "^0.2.6",
+    "random-number": "0.0.1"
+  },
   "devDependencies": {
+    "jasmine-node": "~2.0.0",
+    "mocha": "2.5.3",
     "eslint": "^3.1.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.11.0",
