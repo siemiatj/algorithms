@@ -14,8 +14,7 @@
   "homepage": "https://github.com/siemiatj/algorithms",
   "scripts": {
     "pretest": "npm install",
-    "nodetest": "jasmine-node spec",
-    "test": "make test"
+    "test": "mocha --reporter spec --bail --check-leaks test/"
   },
   "dependencies": {
     "clone": "^1.0.2",
@@ -29,7 +28,6 @@
     "eslint-plugin-import": "^1.11.0",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2",
-    "jasmine-node": "~2.0.0",
     "mocha": "2.5.3"
   }
 }
