@@ -1,7 +1,7 @@
 /* global describe:false, it:false, beforeEach:false */
 
 const expect = require('chai').expect;
-const quickSortFst = require('../02_quicksort.js');
+const quickSortFst = require('../lib/quicksort_first.js').default;
 
 describe('Sorting an unsorted Array using quicksort with first element as pivot', () => {
   let unsortedLength = null;
