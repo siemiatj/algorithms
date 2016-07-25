@@ -54,3 +54,43 @@ const quickSort = function(array, leftIdx, rightIdx) {
     quickSort(array, pivotIdx + 1, rightIdx);
   }
 }
+
+const quickSortLastPivot = function(array, leftIdx, rightIdx) {
+  if (array.length < 2) {
+    return;
+  }
+
+  const partition = function(ar, l, r) {
+    let pivot = ar[r - 1];
+    let i = l + 1;
+    let j = i;
+
+    swap(r-1, l);
+
+    for (j; j < r; j += 1) {
+      if (ar[j] < pivot) {
+        swap(ar, j, i);
+        i += 1;
+      }
+    }
+
+    swap(ar, l, i - 1);
+
+    return i - 1;
+  };
+
+  const swap = function(ar, a, b) {
+    let tmp = ar[a];
+
+    ar[a] = ar[b];
+    ar[b] = tmp;
+  };
+
+  if (leftIdx < rightIdx) {
+    let pivotIdx = partition(array, leftIdx, rightIdx);
+    totalNumberOfComparisons += (rightIdx - leftIdx - 1);
+
+    quickSort(array, leftIdx, pivotIdx);
+    quickSort(array, pivotIdx + 1, rightIdx);
+  }
+}
