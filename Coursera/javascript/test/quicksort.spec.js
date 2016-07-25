@@ -1,6 +1,4 @@
-let quickSortFst = require("../quicksort.js");
-let quickSortLast = require("../quicksort_2.js");
-let quickSortMed = require("../quicksort_3.js");
+const quickSortFst = require('../02_quicksort.js');
 
 describe('Sorting an unsorted Array using quicksort with first element as pivot', function () {
 
