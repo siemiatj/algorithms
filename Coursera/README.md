@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/siemiatj/algorithms.svg?branch=master)](https://travis-ci.org/siemiatj/algorithms)
+
 ![Stanford](https://coursera-university-assets.s3.amazonaws.com/21/9a0294e2bf773901afbfcb5ef47d97/Stanford_Coursera-200x48_RedText_BG.png)
 
 # Description
