@@ -1,7 +1,7 @@
 # Algorithms and other programming problems
 
 This repository contains a list of different algorithms and solutions that I've created over the years for various reasons - work, interviews,
-refreshing knowledge or just for fun. For solutions to `Algorithms: Design and Analysis, Part 1` course problems go [here](). You can find most of them here, but some were extracted as separate projects.
+refreshing knowledge or just for fun. For solutions to `Algorithms: Design and Analysis, Part 1` course problems go [here](https://github.com/siemiatj/algorithms/tree/master/Coursera). You can find most of them here, but some were extracted as separate projects.
 
 ## Problems
 
