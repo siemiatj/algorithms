@@ -1,27 +1,37 @@
 <section id="services">
     <!-- Page Content -->
-    <div class="section-wrapper">
-        <h2>General problems</h2>
-         {{ range $index, $element :=  where .Data.Pages "Section" "in" "general" }}
-            {{ if modBool $index 2 }}
-            <div class="content-section-a">
-            {{ else }}
-            <div class="content-section-b">
-            {{ end }}
-                <div class="container">
-                    <div class="row">
-                        <div>
-                            <hr class="section-heading-spacer">
-                            <div class="clearfix"></div>
-                            <h5 class="section-heading">
-                                <a href="/general/{{ .Slug }}">{{ .Title }}</a>
-                            </h5>
+    <div class="container services-container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>General problems</h2>
+                <div class="problems-list">
+                {{ range $index, $element :=  where .Data.Pages "Section" "in" "general" }}
+                    {{ if modBool $index 2 }}
+                    <div class="row-a row">
+                    {{ else }}
+                    <div class="row-b row">
+                    {{ end }}
+                        <div class="col-md-12">
+                            <div>
+                                <div class="clearfix"></div>
+                                <h5 class="section-heading">
+                                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                </h5>
+                            </div>
                         </div>
+                        <!-- /.container -->
                     </div>
+                {{ end }}
                 </div>
-                <!-- /.container -->
             </div>
-        {{ end }}
-        <h2>Coursera Algorithms: Design and Analysis, Part 1 problems</h2>
+        </div>
+        <!--
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Coursera Algorithms: Design and Analysis, Part 1 problems</h2>
+                <div class="problems-list"></div>
+            </div>
+        </div>
+        -->
     </div>
 </section>

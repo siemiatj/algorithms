@@ -21,6 +21,8 @@
 
     <style>
     {{ printf "%v" (partial "template.css" . ) | safeCSS  }}
+
+    {{ printf "%v" (partial "custom.css" . ) | safeCSS  }}
   </style>
 
 </head>
