@@ -1,0 +1,27 @@
+<section id="services">
+    <!-- Page Content -->
+    <div class="section-wrapper">
+        <h2>General problems</h2>
+         {{ range $index, $element :=  where .Data.Pages "Section" "in" "general" }}
+            {{ if modBool $index 2 }}
+            <div class="content-section-a">
+            {{ else }}
+            <div class="content-section-b">
+            {{ end }}
+                <div class="container">
+                    <div class="row">
+                        <div>
+                            <hr class="section-heading-spacer">
+                            <div class="clearfix"></div>
+                            <h5 class="section-heading">
+                                <a href="/general/{{ .Slug }}">{{ .Title }}</a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container -->
+            </div>
+        {{ end }}
+        <h2>Coursera Algorithms: Design and Analysis, Part 1 problems</h2>
+    </div>
+</section>
