@@ -6,10 +6,37 @@
     <description>Recent content in Generals on Algorithms</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Jul 2017 13:10:11 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jul 2017 13:29:57 +0200</lastBuildDate>
     
 	<atom:link href="https://siemiatj.github.io/algorithms/general/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Minimum Cut</title>
+      <link>https://siemiatj.github.io/algorithms/general/minimum-cut/</link>
+      <pubDate>Mon, 24 Jul 2017 13:29:57 +0200</pubDate>
+      
+      <guid>https://siemiatj.github.io/algorithms/general/minimum-cut/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>N Sum</title>
+      <link>https://siemiatj.github.io/algorithms/general/n-sum/</link>
+      <pubDate>Mon, 24 Jul 2017 13:29:46 +0200</pubDate>
+      
+      <guid>https://siemiatj.github.io/algorithms/general/n-sum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2 Sum</title>
+      <link>https://siemiatj.github.io/algorithms/general/2-sum/</link>
+      <pubDate>Mon, 24 Jul 2017 13:29:43 +0200</pubDate>
+      
+      <guid>https://siemiatj.github.io/algorithms/general/2-sum/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Happy Numbers</title>
@@ -17,7 +44,8 @@
       <pubDate>Mon, 17 Jul 2017 13:10:11 +0200</pubDate>
       
       <guid>https://siemiatj.github.io/algorithms/general/happy-numbers/</guid>
-      <description>Test content for the Happy Numbers algorithm page.</description>
+      <description>Intro A happy number is defined by the following process: Start with a positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay). Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers (or sad numbers).
+Example // is &amp;#39;7&amp;#39; happy?</description>
     </item>
     
   </channel>

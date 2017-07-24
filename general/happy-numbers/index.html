@@ -58,27 +58,56 @@ body {
 }
 
 
-    #services {
-  background-color: #e7e7e7;
+    body {
+  background-color: white;
+}
+
+#services {
+  background-color: #f8f8f8;
   padding-bottom: 50px;
+}
+
+#single {
+  margin-top: 100px;
 }
 
 .problems-list {
   border: 1px solid #ababab;
+  background: white;
+  padding: 0 15px;
 }
 
 .row-a {
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: #f8f8f8;
+}
+
+.row-a:hover {
+  background-color: #f8f8f8;
+}
+
+.row-a .section-heading {
+  margin-bottom: 10px;
+  border: none;
 }
 
 .row-b {
     padding-top: 10px;
     padding-bottom: 10px;
-    border-top: 1px solid #e7e7e7;
-    border-bottom: 1px solid #e7e7e7;
     background-color: #e7e7e7;
+}
+
+.row-b:hover {
+  background-color: #f8f8f8;
+}
+
+.row-b .section-heading {
+  margin-bottom: 10px;
+  border: none;
+}
+
+footer {
+  margin-top: 50px;
 }
   </style>
 
@@ -115,7 +144,7 @@ body {
 </nav>
 
 
-<section id="services">
+<section id="single">
    <div class="content-section-a">
 
       <div class="container">
@@ -125,7 +154,22 @@ body {
             <hr class="section-heading-spacer">
             <div class="clearfix"></div>
             <h2 class="section-heading">Happy Numbers</h2>
-            <p>Test content for the Happy Numbers algorithm page.</p>
+            <h3>Intro</h3>
+
+<p>A happy number is defined by the following process: Start with a positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay). Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers (or sad numbers).</p>
+
+<h3>Example</h3>
+
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span>// is  <span style="color: #e6db74">&#39;7&#39;</span> happy?
+// <span style="color: #ae81ff">7</span> -&gt; <span style="color: #ae81ff">49</span> 
+// 4^2 + 9^2 <span style="color: #f92672">=</span> 97
+// 9^2 + 7^2 <span style="color: #f92672">=</span> 130
+// 1^2 + 3^2 + 0^2 <span style="color: #f92672">=</span> 10
+// 1^2 + 0^2 <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">(</span>happy number<span style="color: #f92672">)</span>
+// is <span style="color: #e6db74">&#39;2&#39;</span> happy?
+// <span style="color: #ae81ff">2</span> -&gt; <span style="color: #ae81ff">4</span> -&gt; <span style="color: #ae81ff">16</span> -&gt; <span style="color: #ae81ff">37</span> -&gt; <span style="color: #ae81ff">58</span> -&gt; <span style="color: #ae81ff">89</span> -&gt; <span style="color: #ae81ff">145</span> -&gt; <span style="color: #ae81ff">42</span> -&gt; <span style="color: #ae81ff">20</span> -&gt; <span style="color: #ae81ff">4</span> <span style="color: #f92672">(</span>loop encountered<span style="color: #f92672">)</span>
+</pre></div>
+
 
         </div>
     </div>

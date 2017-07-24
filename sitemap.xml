@@ -3,13 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://siemiatj.github.io/algorithms/general/minimum-cut/</loc>
+    <lastmod>2017-07-24T13:29:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://siemiatj.github.io/algorithms/general/n-sum/</loc>
+    <lastmod>2017-07-24T13:29:46+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://siemiatj.github.io/algorithms/general/2-sum/</loc>
+    <lastmod>2017-07-24T13:29:43+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://siemiatj.github.io/algorithms/general/happy-numbers/</loc>
     <lastmod>2017-07-17T13:10:11+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://siemiatj.github.io/algorithms/</loc>
-    <lastmod>2017-07-17T13:10:11+02:00</lastmod>
+    <lastmod>2017-07-24T13:29:57+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -20,7 +35,7 @@
   
   <url>
     <loc>https://siemiatj.github.io/algorithms/general/</loc>
-    <lastmod>2017-07-17T13:10:11+02:00</lastmod>
+    <lastmod>2017-07-24T13:29:57+02:00</lastmod>
     <priority>0</priority>
   </url>
   
